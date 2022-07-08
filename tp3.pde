@@ -7,10 +7,15 @@ void setup() {
   obim = loadImage( "obstaculo.png" );
   fondo = loadImage( "fondo.jpg" );
   fondoGame = loadImage( "fondo2.jpg" );
+  fondoCred = loadImage( "fondo3.jpg" );
   jigglyImg = loadImage( "jiggly.png" );
 
   vel = 3;
-  x = 0;
+  x = 310;
+  y = 200;
+  w = 180;
+  h = 20;
+
 
   jiggly = new Jigglypuff();
   obstaculos.add( new Obstaculo() ); // agrego una nueva columna
