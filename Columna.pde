@@ -3,10 +3,10 @@ class Columna {
   int r, x, y;
   float speed;
   Columna() {
-    r = 50;
+    r = 130;
     x = width;
-    y = height - 20 - r;
-    speed = 4;
+    y = height - 5 - r;
+    speed = 3.5 ;
   }
 
   void move() {
@@ -15,6 +15,6 @@ class Columna {
 
   void show() {
 
-    rect(x, y, r, r);
+    image(colmImg, x, y, r, r);
   }
 }
