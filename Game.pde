@@ -1,12 +1,23 @@
 void Game() {
 
   if (estado.equals("inicio")) {
+    inicio();
+  }
+  if ( (mouseX > x) && (mouseX < x + w) && (mouseY > y) && (mouseY< y + h) && mousePressed) {
+    estado = "jugando";
   }
 
-  moveBg();
-  jiggly.move();
-  jiggly.show();
-  moveObs();
+  if (estado.equals("jugando")) {
+
+    moveBg();
+    jiggly.move();
+    jiggly.show();
+    moveObs();
+  }
+  
+  if (estado.equals("creditos")) {
+    creditos();  
+  }  
 }
 
 void moveBg() {
