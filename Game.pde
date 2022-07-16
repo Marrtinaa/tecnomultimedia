@@ -1,33 +1,32 @@
 void Game() {
-
+  if ( (mouseX > x-149) && (mouseX < x-149 + w+150) && (mouseY > y+178) && (mouseY< y+178 + h) && mousePressed) {
+    estado = "reiniciar";
+  }
+  if (estado.equals("reiniciar")) {
+    reiniciar();
+  }
+  if (estado.equals("creditos")) {
+    creditos();
+  }
   if (estado.equals("inicio")) {
     inicio();
   }
-  if ( (mouseX > x) && (mouseX < x + w) && (mouseY > y) && (mouseY< y + h) && mousePressed) {
+  if ( (mouseX > x-75) && (mouseX < x-75 + w) && (mouseY > y+128) && (mouseY< y+128 + h) && mousePressed) {
     estado = "jugando";
   }
-
   if (estado.equals("jugando")) {
-
-    moveBg();
-    jiggly.move();
-    jiggly.show();
-    moveObs();
+    jugando();
+    tiempo++;
+    println( tiempo );
+    println( tiempo / 60 );
+    if ( tiempo == 5*60) {
+      estado = "ganar";
+    }
   }
-  
-  if (estado.equals("creditos")) {
-    creditos();  
-  }  
-}
-
-void moveBg() {
-
-  // ------------------- movimiento de fondo ------------------- 
-  image( fondo, fondox, fondoy );
-  image( fondo, fondox+fondo.width, fondoy ); // el segundo parametro me sirve para alargar la foto hasta el ancho de la pantalla
-  fondox = fondox - vel;
-
-  if ( fondox < -fondo.width ) {
-    fondox = 0;  // en algún momento la imagen se va a terminar, así que este if me ayuda a restaurar a 0 la posición de la imagen
+  if (estado.equals("perder")) {
+    perder();
+  }
+  if (estado.equals("ganar")) {
+    ganar();
   }
 }
