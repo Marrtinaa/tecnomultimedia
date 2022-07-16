@@ -1,6 +1,36 @@
-int fondox, fondoy, vel;
-PImage fondo, fondoGame, fondoCred, jigglyImg, obim;
-PFont gameFont, gameFont2; 
-float x, y, w, h, x1, y1, w1, h1;
-String title = " JIGGLYRUN ", estado = "inicio", play = "PLAY", cred = " \n Tecnologia Multimedial 1 - Comision 2 \n Profesor: Matias Jauregui Lorda \n Alumnos: \n Camila Ayelen Ferreyra Navarro 88162/5 \n Martina Lihuen Ferrer 85058/3 \n", inst = " \n INSTRUCCIONES \n \n Apretar ESPACIO para saltar. \n Debera esquivar los obstaculos saltando \n para poder ganar. \n De lo contrario GAME OVER \n" ;
-ArrayList <Obstaculo> obstaculos = new ArrayList<Obstaculo>();
+int jigglyx, jigglyy, vel, tiempo, fondox, fondoy;
+int maxImg = 12, imageIndex = 0, g = 80, maxImg2 = 32, maxImg3 = 11;
+String text, title, play, playagain, tam2, in, win, lose, lose2, credits, cred;
+String estado;
+
+PImage [] images = new PImage [maxImg];
+PImage [] imagesganar = new PImage [maxImg2];
+PImage [] imagesperder = new PImage [maxImg3];
+PImage [] imagesfondo = new PImage [maxImg];
+PImage jiggly, fondo, jiggly2, obs, credimg;
+PFont gameFont, gameFont2;
+
+float tam, x, y, w, h;
+float posX = 50, posY = height -g, gravedad = 5, frameCount = 0, pokeballX, pokeballY;
+
+// ---------------- funciones ----------------
+
+void texto( String text, float tam, float x, float y ) {
+  fill ( 255 );
+  textAlign( CENTER );
+  textSize( tam );
+  text( text, x, y);
+}
+
+void coli(float pokex, float pokey) {
+
+  if ( dist( pokex, pokey, posX, posY + 10 ) < 30 ) {
+    estado= "perder";
+  }
+}
+
+void boton( float x, float y, float w, float h, int r ) {
+  fill( 255, 50);
+  rect( x, y, w, h, r);
+  textFont( gameFont );
+}
