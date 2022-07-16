@@ -6,7 +6,6 @@ void setup() {
   credimg = loadImage( "cred.png" );
   jiggly = loadImage( "jiggly-jump.png" );
   jiggly2 = loadImage( "jiggly.png" );
-  fondo = loadImage( "fondo.jpg" );
   obs = loadImage( "obst.png" );
 
   text = title = "JIGGLYRUN";
